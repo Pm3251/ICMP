@@ -89,11 +89,10 @@ def ping(host, timeout=1):
 	for i in range(0,4):
 		delay = doOnePing(dest, timeout)
 		time.sleep(1)
-	delay_float = delay*1000
-	packet_min = min(delay_float)
-	packet_max = max(delay_float)
-	packet_avg = (sum(delay_float))/(len(delay_float))
-	stdev_var = stdev(delay_float)
+	packet_min = min(delay)
+	packet_max = max(delay)
+	packet_avg = (sum(delay))/(len(delay))
+	stdev_var = stdev(delay)
 	vars = [str(round(packet_min, 2)), str(round(packet_avg, 2)),str(round(packet_max, 2)),str(round(stdev(stdev_var), 2))]
 	print(vars)
 	return vars
