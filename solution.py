@@ -1,4 +1,5 @@
 from socket import *
+from array import *
 import os
 import sys
 import struct
@@ -85,14 +86,17 @@ def ping(host, timeout=1):
 	dest = gethostbyname(host)
 	print ("Pinging " + dest + " using Python:")
 	print ("")
+	delay_float = array ('f')
 	# Send ping requests to a server separated by approximately one second
 	for i in range(0,4):
 		delay = doOnePing(dest, timeout)
+		delay_float.append(delay)
+		print(delay)
 		time.sleep(1)
-	packet_min = min(delay)
-	packet_max = max(delay)
-	packet_avg = (sum(delay))/(len(delay))
-	stdev_var = stdev(delay)
+	packet_min = min(delay_float)
+	packet_max = max(delay_float)
+	packet_avg = (sum(delay_float))/(len(delay_float))
+	stdev_var = stdev(delay_float)
 	vars = [str(round(packet_min, 2)), str(round(packet_avg, 2)),str(round(packet_max, 2)),str(round(stdev(stdev_var), 2))]
 	print(vars)
 	return vars
