@@ -85,7 +85,6 @@ def ping(host, timeout=1):
 	dest = gethostbyname(host)
 	print ("Pinging " + dest + " using Python:")
 	print ("")
-	delay_float = []
 	# Send ping requests to a server separated by approximately one second
 	for i in range(0,4):
 		delay = doOnePing(dest, timeout)
