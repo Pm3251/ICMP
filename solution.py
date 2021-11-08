@@ -92,7 +92,7 @@ def ping(host, timeout=1):
 		delay = doOnePing(dest, timeout)
 		print (delay)
 		time.sleep(1)
-		packet_min = min()
+		packet_min = min(delay_float)
 		packet_max = max(delay_float)
 		packet_avg = (sum(delay_float))/(len(delay_float))
 		stdev_var = stdev(delay_float)
@@ -100,6 +100,5 @@ def ping(host, timeout=1):
 		print(vars)
 	return vars
 
-if __name__ == '__main__':
-	ping("No.no.e")
+if __name__ == '__main__'
 	ping("google.co.il")
