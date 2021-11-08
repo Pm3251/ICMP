@@ -86,18 +86,18 @@ def ping(host, timeout=1):
 	dest = gethostbyname(host)
 	print ("Pinging " + dest + " using Python:")
 	print ("")
-	delay_float = array('f')
+	delay_float = []
 	# Send ping requests to a server separated by approximately one second
 	for i in range(0,4):
 		delay = doOnePing(dest, timeout)
-		print (delay)
 		time.sleep(1)
-		packet_min = min(delay_float)
-		packet_max = max(delay_float)
-		packet_avg = (sum(delay_float))/(len(delay_float))
-		stdev_var = stdev(delay_float)
-		vars = [str(round(packet_min, 2)), str(round(packet_avg, 2)),str(round(packet_max, 2)),str(round(stdev(stdev_var), 2))]
-		print(vars)
+	delay_float = int(delay*1000)
+	packet_min = min(delay_float)
+	packet_max = max(delay_float)
+	packet_avg = (sum(delay_float))/(len(delay_float))
+	stdev_var = stdev(delay_float)
+	vars = [str(round(packet_min, 2)), str(round(packet_avg, 2)),str(round(packet_max, 2)),str(round(stdev(stdev_var), 2))]
+	print(vars)
 	return vars
 
 if __name__ == '__main__':
