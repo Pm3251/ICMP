@@ -1,5 +1,4 @@
 from socket import *
-from array import *
 import os
 import sys
 import struct
@@ -91,7 +90,7 @@ def ping(host, timeout=1):
 	for i in range(0,4):
 		delay = doOnePing(dest, timeout)
 		time.sleep(1)
-	delay_float = int(delay*1000)
+	delay_float = delay*1000
 	packet_min = min(delay_float)
 	packet_max = max(delay_float)
 	packet_avg = (sum(delay_float))/(len(delay_float))
