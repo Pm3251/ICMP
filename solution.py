@@ -98,7 +98,7 @@ def ping(host, timeout=1):
 	packet_max = max(delay_float)
 	packet_avg = (sum(delay_float))/(len(delay_float))
 	stdev_var = stdev(delay_float)
-	vars = [str(round(packet_min, 2)), str(round(packet_avg, 2)),str(round(packet_max, 2)),str(round(stdev(stdev_var), 2))]
+	vars = packet_min, packet_avg, packet_max, stdev_var
 	print(vars)
 	return vars
 
