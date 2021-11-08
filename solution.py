@@ -100,5 +100,5 @@ def ping(host, timeout=1):
 		print(vars)
 	return vars
 
-if __name__ == '__main__'
+if __name__ == '__main__':
 	ping("google.co.il")
